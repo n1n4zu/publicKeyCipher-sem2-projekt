@@ -2,16 +2,17 @@
 #define PUBLICKEYCIPHER_H
 
 #include <vector>
-#include <algorithm>
+#include <utility> // dla std::pair
 
 using namespace std;
 
 class PublicKeyCipher {
 public:
-    static vector<int> encryptMessage(const vector<char>& message, const pair<int, int>& key, int blockSize);
-    static vector<char> decryptMessage(const vector<int>& encryptedBlocks, int messageLength, const pair<int, int>& key, int blockSize);
+    static vector<long long> encryptMessage(const vector<char>& message, const pair<long long, long long>& key, int blockSize);
+    static vector<char> decryptMessage(const vector<long long>& encryptedBlocks, int messageLength, const pair<long long, long long>& key, int blockSize);
+
 private:
-    static int powMod(int base, int exp, int mod);
+    static long long powMod(long long base, long long exp, long long mod);
 };
 
 #endif //PUBLICKEYCIPHER_H
